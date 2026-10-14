@@ -6,6 +6,7 @@ A collection of CTF challenges I wrote, organized by difficulty. The current cha
 
 | Challenge | Difficulty | Description | Local service |
 | --- | --- | --- | --- |
+| [Banana Counter](ez/banana_counter/README.md) | Easy | Help monke join the 100 Banana Club. | `localhost:1339` |
 | [Monke Spelling Bee](ez/monke_spelling_bee/README.md) | Easy | Give monke words to spell. | `localhost:1337` |
 | [VaultCorp](ez/vault_corp/README.md) | Easy | Try the employee login system. | `localhost:1338` |
 
@@ -22,7 +23,7 @@ docker compose up --build -d
 nc localhost 1337
 ```
 
-For VaultCorp, use `ez/vault_corp` and connect to port `1338`. Both services can run at the same time.
+For VaultCorp, use `ez/vault_corp` and connect to port `1338`. For Banana Counter, use `ez/banana_counter` and port `1339`. All three services can run at the same time.
 
 Run `docker compose down` from the challenge directory to stop its service.
 
