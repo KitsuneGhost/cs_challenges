@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-extern char* gets(char* s);
-
+extern char *gets(char *s);
 
 void setup() {
     setbuf(stdout, NULL);
@@ -9,54 +8,58 @@ void setup() {
     setbuf(stderr, NULL);
 }
 
-
-int win() {
-    printf("BANANA??? BANANA!!!");
+void win() {
+    puts("BANANA??? BANANA!!!");
 
     FILE *flag = fopen("/app/flag.txt", "r");
+
     if (!flag) {
         puts("MONKE CANT READ FLAG :(");
-        return 1;
+        return;
     }
 
     char flag_buffer[128];
+
     if (fgets(flag_buffer, sizeof(flag_buffer), flag)) {
         puts(flag_buffer);
     }
 
     fclose(flag);
-    return 1;
 }
 
-
-int main(void) {
+int main() {
     char buff[64];
-    char option[2];
+    char option[8];
 
     setup();
 
-    printf("Monke Spelling Bee\n");
-    printf("Give monke words and monke will spell them!\n");
-    printf("Monke has no secrets!\n");
-    printf("It's just a monke!\n");
+    puts("Monke Spelling Bee");
+    puts("Give monke words and monke will spell them!");
+    puts("Monke has no secrets!");
+    puts("It's just a monke!");
 
-    printf("Wanna play? (Y/N)");
-    scanf("%s", option);
+    printf("Wanna play? (Y/N) ");
 
-    while (option == "Y\n" || option == "y\n") {
+    if (!fgets(option, sizeof(option), stdin))
+        return 1;
 
-        printf("A word for monke: \n");
+    while (option[0] == 'Y' || option[0] == 'y') {
+
+        puts("A word for monke:");
         gets(buff);
 
         for (int i = 0; i < 64; i++) {
             printf("%c ", buff[i]);
         }
 
-        printf("\n");
+        puts("");
 
-        printf("Wanna play again?");
-        scanf("%s", option);
+        printf("Wanna play again? ");
 
-        return 0;
+        if (!fgets(option, sizeof(option), stdin))
+            break;
     }
+
+    puts("MONKE GO SLEEP");
+    return 0;
 }

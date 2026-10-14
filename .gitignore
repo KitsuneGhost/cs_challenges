@@ -1,0 +1,34 @@
+# Challenge build outputs
+/ez/monke_spelling_bee/msb
+/ez/vault_corp/vault
+**/dist/
+**/build/
+*.o
+*.a
+*.so
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Debugging artifacts
+core
+core.[0-9]*
+*.core
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

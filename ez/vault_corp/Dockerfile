@@ -1,25 +1,21 @@
-FROM ubuntu:24.04
-
-ENV DEBIAN_FRONTEND=noninteractive
+FROM ubuntu:24.04 AS builder
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        gcc \
-        libc6-dev \
-        socat \
-        ca-certificates && \
+    apt-get install -y --no-install-recommends gcc libc6-dev make && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+COPY Makefile challenge.c ./
+RUN make
+
+FROM ubuntu:24.04 AS runtime
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends socat && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-
-COPY challenge.c .
-
-RUN gcc -O0 \
-    -fno-stack-protector \
-    -fno-pie \
-    -no-pie \
-    -o vault challenge.c
-
+COPY --from=builder /build/vault /app/vault
 COPY flag.txt /app/flag.txt
 
 RUN useradd -m ctf && \
@@ -28,7 +24,6 @@ RUN useradd -m ctf && \
     chmod 444 /app/flag.txt
 
 USER ctf
-
 EXPOSE 1337
 
-CMD ["socat", "TCP-LISTEN:1337,reuseaddr,fork", "EXEC:/app/vault,stderr"]
+CMD ["socat", "-T", "60", "TCP-LISTEN:1337,reuseaddr,fork", "EXEC:timeout 300 /app/vault,stderr"]
