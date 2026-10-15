@@ -20,7 +20,7 @@ A collection of CTF challenges I wrote, organized by difficulty. The current cha
 
 ## Suggested progression
 
-Start with **Banana Counter** (overwrite a count), then **Monke Passport** (write exact integer bytes), **Banana Delivery** (replace a string), **Monke Telephone** (replace a function pointer), and **Sleeping Zookeeper** (overwrite a saved return address). Monke Spelling Bee adds a play loop to ret2win; VaultCorp is another introductory adjacent-field overwrite. Russian Guestbook and Russian Passport introduce overflows caused by encoding and transliteration expansion after bounded input.
+Start with **Banana Counter** (overwrite a count), then **Monke Passport** (write exact integer bytes), **Banana Delivery** (replace a string), **Monke Telephone** (replace a function pointer), and **Sleeping Zookeeper** (overwrite a saved return address). Monke Spelling Bee adds a play loop to ret2win; VaultCorp is another introductory adjacent-field overwrite. Russian Guestbook and Russian Passport introduce overflows caused by encoding and transliteration expansion after bounded input but require use of russian letters (they exist for fun and more like an easter egg).
 
 ## Run a challenge
 
