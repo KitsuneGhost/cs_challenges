@@ -7,10 +7,18 @@ A collection of CTF challenges I wrote, organized by difficulty. The current cha
 | Challenge | Difficulty | Description | Local service |
 | --- | --- | --- | --- |
 | [Banana Counter](ez/banana_counter/README.md) | Easy | Help monke join the 100 Banana Club. | `localhost:1339` |
+| [Monke Passport](ez/monke_passport/README.md) | Easy | Get monke through the jungle border. | `localhost:1340` |
 | [Monke Spelling Bee](ez/monke_spelling_bee/README.md) | Easy | Give monke words to spell. | `localhost:1337` |
+| [Banana Delivery](ez/banana_delivery/README.md) | Easy | Deliver bananas to the treehouse. | `localhost:1341` |
+| [Monke Telephone](ez/monke_telephone/README.md) | Easy | Connect monke to the banana hotline. | `localhost:1342` |
+| [Sleeping Zookeeper](ez/sleeping_zookeeper/README.md) | Easy | Sneak past the zookeeper for secret bananas. | `localhost:1343` |
 | [VaultCorp](ez/vault_corp/README.md) | Easy | Try the employee login system. | `localhost:1338` |
 
 `ez/`, `mid/`, and `hard/` hold easy, medium, and hard challenges respectively. The medium and hard directories are currently empty. Individual challenge READMEs include setup instructions and marked author spoilers.
+
+## Suggested progression
+
+Start with **Banana Counter** (overwrite a count), then **Monke Passport** (write exact integer bytes), **Banana Delivery** (replace a string), **Monke Telephone** (replace a function pointer), and **Sleeping Zookeeper** (overwrite a saved return address). Monke Spelling Bee adds a play loop to ret2win; VaultCorp is another introductory adjacent-field overwrite.
 
 ## Run a challenge
 
@@ -23,7 +31,7 @@ docker compose up --build -d
 nc localhost 1337
 ```
 
-For VaultCorp, use `ez/vault_corp` and connect to port `1338`. For Banana Counter, use `ez/banana_counter` and port `1339`. All three services can run at the same time.
+For another challenge, change into its directory and connect to the port in the table above. Each service uses a different host port, so all challenges can run at the same time.
 
 Run `docker compose down` from the challenge directory to stop its service.
 

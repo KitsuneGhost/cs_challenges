@@ -1,0 +1,13 @@
+services:
+  sleeping_zookeeper:
+    platform: linux/amd64
+    build: .
+    ports:
+      - "1343:1337"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 64
+    mem_limit: 128m
