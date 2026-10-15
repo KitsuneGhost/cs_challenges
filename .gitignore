@@ -37,3 +37,5 @@ core.[0-9]*
 *~
 .DS_Store
 Thumbs.db
+/ez/russian_guestbook/russian_guestbook
+/ez/russian_passport/russian_passport

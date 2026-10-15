@@ -13,12 +13,14 @@ A collection of CTF challenges I wrote, organized by difficulty. The current cha
 | [Monke Telephone](ez/monke_telephone/README.md) | Easy | Connect monke to the banana hotline. | `localhost:1342` |
 | [Sleeping Zookeeper](ez/sleeping_zookeeper/README.md) | Easy | Sneak past the zookeeper for secret bananas. | `localhost:1343` |
 | [VaultCorp](ez/vault_corp/README.md) | Easy | Try the employee login system. | `localhost:1338` |
+| [Russian Guestbook](ez/russian_guestbook/README.md) | Easy | Open an archive through a legacy encoding conversion. | `localhost:1344` |
+| [Russian Passport](ez/russian_passport/README.md) | Easy | Get approved by the transliteration service. | `localhost:1345` |
 
 `ez/`, `mid/`, and `hard/` hold easy, medium, and hard challenges respectively. The medium and hard directories are currently empty. Individual challenge READMEs include setup instructions and marked author spoilers.
 
 ## Suggested progression
 
-Start with **Banana Counter** (overwrite a count), then **Monke Passport** (write exact integer bytes), **Banana Delivery** (replace a string), **Monke Telephone** (replace a function pointer), and **Sleeping Zookeeper** (overwrite a saved return address). Monke Spelling Bee adds a play loop to ret2win; VaultCorp is another introductory adjacent-field overwrite.
+Start with **Banana Counter** (overwrite a count), then **Monke Passport** (write exact integer bytes), **Banana Delivery** (replace a string), **Monke Telephone** (replace a function pointer), and **Sleeping Zookeeper** (overwrite a saved return address). Monke Spelling Bee adds a play loop to ret2win; VaultCorp is another introductory adjacent-field overwrite. Russian Guestbook and Russian Passport introduce overflows caused by encoding and transliteration expansion after bounded input.
 
 ## Run a challenge
 
